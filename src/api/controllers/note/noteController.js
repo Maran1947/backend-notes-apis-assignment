@@ -138,7 +138,7 @@ const update_note = async (req, res) => {
 
         return res.status(200).json({
             success: true,
-            message: "Note updated successfully."
+            message: "Note updated successfully"
         });
     } catch (err) {
         console.log(err);
@@ -173,7 +173,7 @@ const delete_note = async (req, res) => {
         await Note.deleteOne({ _id: noteId, userId });
         return res.status(200).json({
             success: true,
-            data: "Note deleted successfully"
+            message: "Note deleted successfully"
         })
     } catch (err) {
         console.log(err);
@@ -213,7 +213,7 @@ const share_note = async (req, res) => {
 
         return res.status(200).json({
             success: true,
-            message: "Note shared successfully."
+            message: "Note shared successfully"
         });
     } catch (err) {
         console.log(err);

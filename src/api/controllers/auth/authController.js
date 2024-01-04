@@ -168,7 +168,7 @@ module.exports.login_user = async (req, res) => {
 
         return res.status(200).json({
             success: true,
-            message: 'Login successful',
+            message: 'Login successfull',
             data: { email, csrfToken }
         })
 
