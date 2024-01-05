@@ -91,3 +91,6 @@ npm run dev
 ```
 npm test or npm run test
 ```
+
+## NOTE: 
+- Add an X-CSRF-TOKEN property to the headers that you will receive after a login/signup request when making requests to other APIs.
