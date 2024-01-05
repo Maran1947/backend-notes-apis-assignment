@@ -92,5 +92,94 @@ npm run dev
 npm test or npm run test
 ```
 
-## NOTE: 
+### NOTE: 
 - Add an X-CSRF-TOKEN property to the headers that you will receive after a login/signup request when making requests to other APIs.
+  
+## APIs Endpoints
+- BASE_URL = http://localhost:8000/api
+
+- Auth Endpoints:
+    - POST {{BASE_URL}}/auth/signup
+        ```
+            {
+                "fullName":"Test user A",
+                "email":"testa@test.com",
+                "password":"Abc@1234"
+            }
+        
+            Response
+            {
+                "success": true,
+                "message": "User registered successfully",
+                "data": {
+                    "email": "testa@test.com",
+                    "csrfToken": "a425476c-47ab-49a5-9c21-d83d0c39f8f5"
+                }
+            }
+        ```
+    - POST {{BASE_URL}}/auth/login
+       ```
+        {
+            "email":"testa@test.com",
+            "password":"Abc@1234"
+        }
+        ```
+    - POST {{BASE_URL}}/auth/logout
+      ```
+      In Headers,
+      X-CSRF-TOKEN=<X-CSRF-TOKEN>
+      ```
+    - POST {{BASE_URL}}/auth/refresh-token
+      ```
+      In Headers,
+      X-CSRF-TOKEN=<X-CSRF-TOKEN>
+      ```
+
+- Note Endpoints:
+    - POST {{BASE_URL}}/notes
+      ```
+      {
+        "title":"Test title",
+        "content":"Test content" 
+      }
+      In Headers,
+      X-CSRF-TOKEN=<X-CSRF-TOKEN>
+      ```
+    - GET {{BASE_URL}}/notes/:id
+      ```
+      In Headers,
+      X-CSRF-TOKEN=<X-CSRF-TOKEN>
+      ```
+    - GET {{BASE_URL}}/notes
+      ```
+      In Headers,
+      X-CSRF-TOKEN=<X-CSRF-TOKEN>
+      ```
+    - PUT {{BASE_URL}}/notes/:id
+      ```
+      {
+        "title":"Test title update",
+        "content":"Content note update"
+      }
+      In Headers,
+      X-CSRF-TOKEN=<X-CSRF-TOKEN>
+      ```
+    - DELETE {{BASE_URL}}/notes/:id
+      ```
+      In Headers,
+      X-CSRF-TOKEN=<X-CSRF-TOKEN>
+      ```
+    - POST {{BASE_URL}}/notes/:id/share
+      ```
+      {
+        "sharedUserId":<USER_ID> // Specify the user ID of the user with whom the current user wants to share their note.
+      }
+      In Headers,
+      X-CSRF-TOKEN=<X-CSRF-TOKEN>
+      ```
+- Search notes Endpoint:
+    - GET {{BASE_URL}}/search?q=:query
+      ```
+      In Headers,
+      X-CSRF-TOKEN=<X-CSRF-TOKEN>
+      ```
