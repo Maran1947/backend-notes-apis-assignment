@@ -107,7 +107,7 @@ npm test or npm run test
                 "password":"Abc@1234"
             }
         
-            Response
+            Response:
             {
                 "success": true,
                 "message": "User registered successfully",
@@ -116,6 +116,8 @@ npm test or npm run test
                     "csrfToken": "a425476c-47ab-49a5-9c21-d83d0c39f8f5"
                 }
             }
+        
+           In the response headers, you will get the following cookies: _csrf, access_token, and refresh_token.
         ```
     - POST {{BASE_URL}}/auth/login
        ```
